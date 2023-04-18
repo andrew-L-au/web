@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Shopping Website - Search Page</title>
+  <link rel="stylesheet" href="../css/search.css">
+  <link rel="stylesheet" href="../css/nav.css">
+  <link rel="stylesheet" href="../css/searchBox.css">
+</head>
+<body>
+  <header class="header">
+		<nav>
+            <div class="nav-container">
+                <h1>网页标题</h1>
+                <ul>
+                    <li><a href="#">首页</a></li>
+                    <li><a href="#">登录</a></li>
+                    <li><a href="#">注册</a></li>
+                </ul>
+            </div>
+            <div class="nav-container">
+                <div class="searchBox">
+                    <input class="inputBox" placeholder="">
+                    <button class="searchBtn">搜索</button>
+                </div>
+            </div>
+		</nav>
+	</header>
+  <main>
+    <h2>Search Results</h2>
+    <div class="filter-sort">
+      <div class="search-box">
+        <input type="text" placeholder="Search">
+        <select name="category">
+          <option value="author">By Author</option>
+          <option value="art">By Art</option>
+        </select>
+        <button>Search</button>
+      </div>
+      <div class="sort-box">
+        <label for="sort-by">Sort by:</label>
+        <select name="sort-by" id="sort-by">
+          <option value="price-low-to-high">Price: Low to High</option>
+          <option value="price-high-to-low">Price: High to Low</option>
+          <option value="newest">Newest</option>
+        </select>
+      </div>
+    </div>
+    <ul class="products">
+      <li>
+        <a href="#">
+          <img src="product1.jpg" alt="Product 1">
+          <h3>Product 1</h3>
+          <p>$9.99</p>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <img src="product2.jpg" alt="Product 2">
+          <h3>Product 2</h3>
+          <p>$19.99</p>
+        </a>
+      </li>
+    </ul>
+  </main>
+  <footer>
+    <p>&copy; 2023 Shopping Website</p>
+  </footer>
+</body>
+</html>

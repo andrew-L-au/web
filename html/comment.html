@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Product Reviews</title>
+  <link rel="stylesheet" href="../css/comment.css">
+</head>
+<body>
+  <header>
+    <h1>Product Reviews</h1>
+  </header>
+  <main>
+    <h2>Customer Reviews</h2>
+    <div class="write-review">
+      <form>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" placeholder="Enter your name" required>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+        <label for="rating">Rating:</label>
+        <select id="rating" name="rating" required>
+          <option value="" disabled selected>Select a rating</option>
+          <option value="5">5 stars</option>
+          <option value="4">4 stars</option>
+          <option value="3">3 stars</option>
+          <option value="2">2 stars</option>
+          <option value="1">1 star</option>
+        </select>
+        <label for="review">Review:</label>
+        <textarea id="review" name="review" placeholder="Enter your review" required></textarea>
+        <button type="submit">Submit Review</button>
+      </form>
+    </div>
+    <div class="reviews">
+      <h3>Customer Reviews</h3>
+      <ul>
+        <li>
+          <div class="review-header">
+            <h4>Customer Name</h4>
+            <p>Rating: 5 stars</p>
+            <p>Date: January 1, 2023</p>
+          </div>
+          <p>This is a great product. I would definitely recommend it to anyone.</p>
+          <div class="review-actions">
+            <button class="like">Like</button>
+            <button class="dislike">Dislike</button>
+            <button class="reply">Reply</button>
+          </div>
+        </li>
+        <li>
+          <div class="review-header">
+            <h4>Another Customer</h4>
+            <p>Rating: 4 stars</p>
+            <p>Date: January 2, 2023</p>
+          </div>
+          <p>This product is pretty good, but it could be better.</p>
+          <div class="review-actions">
+            <button class="like">Like</button>
+            <button class="dislike">Dislike</button>
+            <button class="reply">Reply</button>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </main>
+  <footer>
+    <p>&copy; 2023 Product Reviews</p>
+  </footer>
+</body>
+</html>

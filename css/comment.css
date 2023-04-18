@@ -1,0 +1,122 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+}
+
+header, footer {
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+}
+
+main {
+  padding: 20px;
+}
+
+h1, h2, h3, h4 {
+  margin: 0;
+}
+
+h2 {
+  margin-top: 20px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  border: 1px solid #ccc;
+  margin-bottom: 20px;
+  padding: 10px;
+}
+
+/* Write review form */
+.write-review {
+  margin-bottom: 20px;
+  padding: 10px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+  width: 100%;
+  padding: 5px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+}
+
+select {
+  width: 100%;
+  padding: 5px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+}
+
+button[type="submit"] {
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+/* Customer reviews */
+.reviews {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+
+.review-header {
+  margin-bottom: 10px;
+}
+
+.review-header h4 {
+  margin-top: 0;
+  margin-bottom: 5px;
+}
+
+.review-header p {
+  margin: 0;
+  margin-bottom: 5px;
+}
+
+.review-actions {
+  margin-top: 10px;
+}
+
+.review-actions button {
+  background-color: #333;
+  color: #fff;
+  padding: 5px;
+  border: none;
+  cursor: pointer;
+  margin-right: 5px;
+}
+
+.review-actions button:hover {
+  background-color: #555;
+}
+
+.like {
+  background-color: green;
+}
+
+.dislike {
+  background-color: red;
+}
+
+.reply {
+  background-color: #333;
+}

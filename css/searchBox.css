@@ -1,0 +1,24 @@
+
+.searchBox{
+    display: flex;
+
+}
+
+.inputBox{
+    border: none;
+    /* 改变光标的颜色 */
+    caret-color:#008B8B;
+    font-size: 14px;
+}
+
+.searchBtn{
+    border: none;
+    color: white;
+    font-size: 15px;
+    background-color: #756f6f;
+}
+
+/* 鼠标滑过按钮时背景色改变 */
+.searchBtn:hover{
+    background-color: #111212;
+}

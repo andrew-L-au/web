@@ -1,0 +1,124 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+    
+h1, h2, h3 {
+    margin: 0;
+}
+    
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+    
+a {
+    text-decoration: none;
+    color: #333;
+}
+    
+    /* Header Styles */
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+    
+
+    
+    /* Main Styles */
+main {
+    padding: 20px;
+}
+    
+.filter-sort {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+    
+.search-box {
+    display: flex;
+    align-items: center;
+}
+    
+.search-box input[type="text"],
+.search-box select {
+    height: 30px;
+    margin-right: 10px;
+    padding: 0 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+    
+.search-box button {
+    height: 30px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 0 10px;
+    cursor: pointer;
+}
+    
+.sort-box label {
+    margin-right: 10px;
+}
+    
+.sort-box select {
+    height: 30px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 0 10px;
+}
+    
+/* .products {
+    display: flex;
+    flex-wrap: wrap;
+} */
+    
+.products li {
+    width: 200px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+    
+.products li:last-child {
+    margin-right: 0;
+}
+    
+.products a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+    
+.products img {
+    width: 100%;
+    max-width: 150px;
+    margin-bottom: 10px;
+}
+    
+.products h3 {
+    font-size: 1.2em;
+    margin: 0;
+}
+    
+.products p {
+    margin: 0;
+}
+    
+/* Footer Styles */
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    text-align: center;
+}

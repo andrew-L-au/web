@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Product Upload</title>
+  <link rel="stylesheet" href="../css/upload.css">
+</head>
+<body>
+  <header>
+    <h1>Product Upload</h1>
+  </header>
+  <main>
+    <div class="product-image">
+      <label for="upload-image">Upload Image:</label>
+      <input type="file" id="upload-image" name="upload-image" accept="image/*">
+      <img id="image-preview" src="#" alt="Image Preview">
+    </div>
+    <div class="product-details">
+      <form>
+        <label for="product-name">Product Name:</label>
+        <input type="text" id="product-name" name="product-name" placeholder="Enter product name" required>
+        <label for="product-price">Price:</label>
+        <input type="number" id="product-price" name="product-price" placeholder="Enter product price" min="0" required>
+        <label for="product-description">Description:</label>
+        <textarea id="product-description" name="product-description" placeholder="Enter product description" required></textarea>
+        <button type="submit">Upload Product</button>
+      </form>
+    </div>
+  </main>
+  <footer>
+    <p>&copy; 2023 Product Upload</p>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
