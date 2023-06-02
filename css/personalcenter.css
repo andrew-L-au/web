@@ -6,15 +6,21 @@ body {
   }
   
   /* 头部样式 */
-  header {
-  background-color: #007bff;
-  color: white;
-  padding: 10px;
+  /*header {*/
+  /*background-color: #333333;*/
+  /*color: white;*/
+  /*padding: 10px;*/
+  /*}*/
+
+  .header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
   }
   
-  header h1 {
-  margin: 0;
-  }
+  /*header h1 {*/
+  /*margin: 0;*/
+  /*}*/
   
   /* 主体样式 */
   main {
