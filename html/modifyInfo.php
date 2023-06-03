@@ -45,10 +45,10 @@
   $user = $result->fetch_assoc();
   ?>
 
-<form id="registerForm" method="POST">
+<form id="modifyForm" method="POST">
   <div class="container">
-    <h1>Register</h1>
-    <p>Please fill in this form to create an account.</p>
+    <h1>Modify</h1>
+    <p>Please fill in this form to modify account info.</p>
     <hr />
 
     <label for="username"><b>Username</b></label>

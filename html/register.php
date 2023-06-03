@@ -73,7 +73,7 @@
         <input type="text" placeholder="Enter Verification Code" name="captcha" required />
         <div id="captchaMessage" style="display: none; color: red;">Incorrect verification code. Please try again.</div>
         <canvas id="captchaCanvas" style="border: 1px solid #ccc;"></canvas>
-        <button id="refreshButton" class="registerbtn">Refresh</button>
+        <button id="refreshButton" class="refreshbtn">Refresh</button>
 
         <hr />
         <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>

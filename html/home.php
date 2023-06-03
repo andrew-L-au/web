@@ -34,8 +34,8 @@
   <section class="hero">
     <h2>Welcome to online art website</h2>
   </section>
-  <div id = "hottestArt">
-    <h3>Hottest Art</h3>
+  <div id = "LatestArt">
+    <h3>Latest Art</h3>
     <section class="merchandises">
     <?php
       // 连接数据库
@@ -65,6 +65,44 @@
       // 关闭连接
       mysqli_close($conn);
     ?>
+    </section>
+  </div>
+
+  <div id = "RecommendForYou">
+    <h3>Recommend For You</h3>
+    <section class="merchandises">
+      <?php
+      // 连接数据库
+      $conn = mysqli_connect("localhost", "root", "A//4321abcd", "art");
+      // 检查连接是否成功
+      if (!$conn) {
+        die("连接失败: " . mysqli_connect_error());
+      }
+      // 查询数据库
+      $sql = "SELECT * FROM user_visits ORDER BY visits DESC LIMIT 5;";
+      $result = mysqli_query($conn, $sql);
+      // 显示结果
+      if (mysqli_num_rows($result) > 0) {
+        while($row = mysqli_fetch_assoc($result)) {
+          $recommendArtId = $row["art_id"];
+          $sql = "SELECT art_id, name, artist, price FROM art WHERE art_id = $recommendArtId;";
+          $result = mysqli_query($conn, $sql);
+          $row = $result->fetch_assoc();
+          ?>
+          <div id="<?php echo $row["art_id"]?>"class="merchandise">
+            <img src="<?php echo "../images/art_image_" . $row["art_id"] . ".jpg"?>"  alt="Feature 1">
+            <h3><?php echo $row["name"]?></h3>
+            <p>Artist : <?php echo $row["artist"]?></p>
+            <p><?php echo $row["price"]?></p>
+          </div>
+          <?php
+        }
+      } else {
+        echo "no art";
+      }
+      // 关闭连接
+      mysqli_close($conn);
+      ?>
     </section>
   </div>
     

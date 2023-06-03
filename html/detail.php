@@ -45,6 +45,21 @@
       die("Connection failed: " . $conn->connect_error);
     }
 
+    if (isset($_COOKIE["userId"])){
+      $userId = $_COOKIE["userId"];
+      $sql = "SELECT * FROM user_visits WHERE art_id = $artId AND user_id = $userId";
+      $result = mysqli_query($conn, $sql);
+      if ($result->num_rows == 0){
+        $sql = "INSERT INTO user_visits (user_id, art_id, visits) VALUES ($userId, $artId, 1)";
+      }else{
+        $sql = "UPDATE user_visits SET visits = visits + 1 WHERE art_id = $artId AND user_id = $userId";
+      }
+      mysqli_query($conn, $sql);
+    }
+
+    $sql = "UPDATE art SET visits = visits + 1 WHERE art_id = '$artId'";
+    $result = mysqli_query($conn, $sql);
+
     $sql = "SELECT * FROM art WHERE art_id = '$artId'";
     $result = mysqli_query($conn, $sql);
     $row = $result->fetch_assoc();
@@ -52,6 +67,7 @@
     $artworkName = $row["name"];
     $artistName = $row["artist"];
     $price = $row["price"];
+    $visits = $row["visits"];
     $isSold = $row["is_sold"];
     $datePosted = $row["post_date"];
     $postedBy = $row["poster"];
@@ -98,7 +114,9 @@
   ?>
   <main>
     <div class="artwork-details">
-      <img src="<?php echo $imagePath; ?>" alt="Artwork Image">
+      <div class="image-container">
+        <img id="zoom-image" class="photo" src="<?php echo $imagePath; ?>" alt="Artwork Image">
+      </div>
       <div class="details">
         <h2><?php echo $artworkName; ?></h2>
         <p>By <?php echo $artistName; ?></p>
@@ -106,6 +124,7 @@
         <p>IsSold: <?php echo $isSold; ?></p>
         <p>Date Posted: <?php echo $datePosted; ?></p>
         <p>Posted By: <?php echo $postedBy; ?></p>
+        <p>Visits: <?php echo $visits; ?></p>
         <h3>Details</h3>
         <ul>
           <li>Year: <?php echo $year; ?></li>
@@ -177,7 +196,11 @@
                 <h4><?php echo $row["username"]?></h4>
               </div>
               <p><?php echo $row["comment_value"]?></p>
+              <p>Likes :<?php echo $row["likes"]?></p>
             </div>
+            <?php
+              if (isset($_COOKIE["userId"])){
+            ?>
             <form id="reply-form" action="../php/reply.php" method="POST">
               <input id="art-id" type="hidden" name="art-id" value="<?php echo $artId?>">
               <input type="hidden" name="reply-to-comment-id" value="<?php echo $row["art_comment_id"]?>">
@@ -187,11 +210,22 @@
               <button type="submit">Submit Reply</button>
             </form>
             <div class="review-actions">
-              <button class="like">Like</button>
-              <button class="dislike">Unlike</button>
+              <?php
+              $userId = $_COOKIE["userId"];
+              $artCommentId = $row["art_comment_id"];
+              $sql = "SELECT * FROM user_likes WHERE user_id = $userId AND art_comment_id = $artCommentId";
+              $result = $conn->query($sql);
+              ?>
+              <form  id="like-comment-form" action="../php/likeComment.php" method="POST">
+                <input id="like-comment-art-id" type="hidden" name="art-id" value="<?php echo $artId?>">
+                <input id="like-comment-comment-id" type="hidden" name="comment-id" value="<?php echo $row["art_comment_id"]?>">
+                <input id="like-comment-user-id" type="hidden" name="user-id" value="<?php echo $_COOKIE["userId"]?>">
+                <input id="like-comment-status" type="hidden" name="<?php if ($result->num_rows == 0){echo "like";}else{echo "unlike";}?>" value="">
+                <button type="submit" class="like" <?php if ($row["user_id"] == $_COOKIE["userId"]){echo "style=\"display: none\"";}?>>Like</button>
+              </form>
               <form  id="delete-comment-form" action="../php/deleteComment.php" method="POST">
                 <input id="delete-comment-comment-id" type="hidden" name="comment-id" value="<?php echo $row["art_comment_id"]?>">
-                <button type="submit" class="delete" <?php if (!($row["user_id"] === $_COOKIE["userId"])){echo "style=\"display: none\"";}?>>Delete</button>
+                <button type="submit" class="delete" <?php if (!($row["user_id"] == $_COOKIE["userId"])){echo "style=\"display: none\"";}?>>Delete</button>
               </form>
             </div>
           </div>
@@ -200,6 +234,7 @@
               }
             }
           }
+        }
       ?>
       </ul>
     </div>
@@ -326,6 +361,21 @@
           }
           return "";
       }
+
+      const image = document.getElementById('zoom-image');
+
+      image.addEventListener('mousemove', function(event) {
+          const { left, top, width, height } = image.getBoundingClientRect();
+          const x = (event.clientX - left) / width;
+          const y = (event.clientY - top) / height;
+
+          image.style.transformOrigin = `${x * 100}% ${y * 100}%`;
+          image.classList.add('zoomed');
+      });
+
+      image.addEventListener('mouseleave', function() {
+          image.classList.remove('zoomed');
+      });
   </script>
 </body>
 </html>
